@@ -4,22 +4,6 @@ import {
   DELETE_LIST, RESET_DELETED_LIST
 } from '../actions/playlists';
 
-
-// const INITIAL_STATE = {
-//   postsList: {
-//     posts: [
-//       {
-//         _id: '00',
-//         title: 'My First Post',
-//         categories: 'Programming, Redux',
-//         content: 'My first post'
-//       }
-//     ]
-//   },
-//   activePlaylist: { playlist: null },
-//   deletedPlaylist: { playlist: null }
-// };
-
 const INITIAL_STATE = {
   songs: [
       {
@@ -79,6 +63,7 @@ const INITIAL_STATE = {
 
 export default function (state = INITIAL_STATE, action) {
   let index;
+  console.log(state);
 
   switch (action.type) {
 

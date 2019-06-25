@@ -9,7 +9,7 @@ const Header = (props) => {
 	const dispatch = useDispatch();
 
 	const { deletedPlaylist } = useSelector(state => ({
-		deletedPlaylist: state.posts.deletedPlaylist
+		deletedPlaylist: state.deletedPlaylist
 	}));
 
 	const renderLinks = () => {
@@ -52,7 +52,7 @@ const Header = (props) => {
 		}
 	};
 
-	if (deletedPlaylist.post) {
+	if (deletedPlaylist) {
 		dispatch(resetDeletedPlaylist());
 		props.history.push('/');
 	}
