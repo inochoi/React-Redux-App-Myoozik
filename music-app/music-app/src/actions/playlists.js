@@ -26,7 +26,7 @@ export function resetDeletedPlaylist() {
 export function fetchPlaylist(id) {
   return {
     type: FETCH_LIST,
-    postId: id
+    playlistId: id
   };
 }
 
@@ -34,6 +34,6 @@ export function fetchPlaylist(id) {
 export function deletePlaylist(id) {
   return {
     type: DELETE_LIST,
-    postId: id
+    playlistId: id
   };
 }

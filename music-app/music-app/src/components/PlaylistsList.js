@@ -1,12 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
+import { resetDeletedPlaylist, deletePlaylist } from '../actions/playlists';
 
-const PlaylistsList = () => {
+const PlaylistsList = (props) => {
+
+  const dispatch = useDispatch();
+
+  const { deletedPlaylist } = useSelector(state => ({
+    deletedPlaylist: state.music.deletedPlaylist
+  }));
 
   const { pList } = useSelector(state => ({
-    pList: state.playlists.playlists
+    pList: state.music.playlists
   }));
+
+  if (deletedPlaylist.playlist) {
+  	dispatch(resetDeletedPlaylist());
+  }
 
   // const renderPosts = (pList) => {
   //   return pList.map((p) => {
@@ -27,16 +38,19 @@ const PlaylistsList = () => {
     <div className="container">
       <h1>Playlists</h1>
       <ul className="list-group">
-      {pList.map((p, index) => (
-        <div key={p.id}>
-          <h3>
-            <Link to={`/post/${p.id}`}>
-              {p.name}
-            </Link>
-          </h3>
-          <hr />
-        </div>
-      ))}
+        {pList.map((p, index) => (
+          <div key={p.id}>
+            <h3>
+              <Link to={`/playlist/${p.id}`}>
+                {p.name}
+              </Link>
+              <button className="btn btn-warning pull-xs-right" onClick={() => dispatch(deletePlaylist(props.id))}>X</button>
+            </h3>
+            <div className="navbar-form navbar-right" style={{ paddingRight: '50px' }}>
+            </div>
+            <hr />
+          </div>
+        ))}
         {/* {renderPosts(pList)} */}
       </ul>
     </div>

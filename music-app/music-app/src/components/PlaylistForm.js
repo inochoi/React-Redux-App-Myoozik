@@ -10,9 +10,8 @@ const PlaylistForm = (props) => {
     const dispatch = useDispatch();
 
     const initialState = {
-        title: '',
-        categories: '',
-        content: ''
+        name: '',
+        description: ''
     }
 
     const [state, setState] = useState(initialState);
@@ -23,14 +22,13 @@ const PlaylistForm = (props) => {
 
     const onSubmit = e => {
         e.preventDefault();
-        let post = {
-            _id: uniqid(),
-            title: state.title,
-            categories: state.categories,
-            content: state.content
+        let playlist = {
+            id: uniqid(),
+            name: state.name,
+            description: state.description
         }
 
-        dispatch(createPlaylist(post));
+        dispatch(createPlaylist(playlist));
         setState(initialState);
         props.history.push('/');
     }
@@ -39,18 +37,14 @@ const PlaylistForm = (props) => {
         <div className="container">
             <form onSubmit={onSubmit}>
                 <div className="form-group">
-                    <label>TItle</label>
-                    <input className="form-control" name='title' value={state.title} onChange={onChange} />
+                    <label>Name</label>
+                    <input className="form-control" name='name' value={state.name} onChange={onChange} />
                 </div>
                 <div className="form-group">
-                    <label>Categories</label>
-                    <input className="form-control" name='categories' value={state.categories} onChange={onChange} />
+                    <label>Description</label>
+                    <input className="form-control" name='description' value={state.description} onChange={onChange} />
                 </div>
-                <div className="form-group">
-                    <label>Content</label>
-                    <input className="form-control" name='content' value={state.content} onChange={onChange} />
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Create Playlist</button>
             </form>
         </div>
     )

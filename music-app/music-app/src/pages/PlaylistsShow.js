@@ -6,7 +6,7 @@ const PlaylistsShow = (props) => {
 
     return (
       <div className='container'>
-        <Header type="playlists_show" postId={props.match.params.id}/>
+        <Header type="playlists_show" pId={props.match.params.id}/>
         <PlaylistDetails id={props.match.params.id}/>
       </div>
     );

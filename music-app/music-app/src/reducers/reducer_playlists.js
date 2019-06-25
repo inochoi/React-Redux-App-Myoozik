@@ -29,6 +29,7 @@ const INITIAL_STATE = {
       {
           id: '0',
           name: 'my music',
+          description: 'my first playlist',
           songs: [
               {
                   id: "0",
@@ -44,6 +45,7 @@ const INITIAL_STATE = {
       {
           id: '1',
           name: 'other music',
+          description: 'my other playlist',
           songs: [
               {
                   id: "1",
@@ -57,8 +59,8 @@ const INITIAL_STATE = {
           ]
       }
   ],
-  activePlaylist: [{ playlist: null }],
-  deletedPlaylist: [{ playlist: null }]
+  activePlaylist: { playlist: null },
+  deletedPlaylist: { playlist: null }
 };
 
 export default function (state = INITIAL_STATE, action) {
@@ -68,44 +70,43 @@ export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
 
     case FETCH_LIST:
-      index = state.postsList.posts.findIndex(p => p._id === action.postId);
-      console.log(state.postsList.posts[index])
+      index = state.playlists.findIndex(p => p.id === action.playlistId);
+      console.log(state.playlists[index])
       return {
         ...state,
-        activePost: {
-          ...state.activePost,
-          post: state.postsList.posts[index]
+        activePlaylist: {
+          ...state.activePlaylist,
+          playlist: state.playlists[index]
         }
       };
 
     case CREATE_LIST:
       return {
         ...state,
-        postsList: {
-          ...state.postsList,
-          posts: [...state.postsList.posts, action.payload]
-        }
+       
+          // ...state.playlists,
+          playlists: [...state.playlists, action.payload]
+        
       }
 
     case DELETE_LIST:
-      index = state.postsList.posts.findIndex(p => p._id === action.postId);
-      let copyPosts = state.postsList.posts.slice();
-      let deleted = copyPosts.splice(index, 1)[0];
+      index = state.playlists.findIndex(p => p._id === action.playlistId);
+      let copyPlaylist = state.playlists.slice();
+      let deleted = copyPlaylist.splice(index, 1)[0];
 
       return {
         ...state,
-        postsList: {
-          ...state.postsList,
-          posts: copyPosts
-        },
-        deletedPost: {
-          ...state.deletedPost,
-          post: deleted
+        playlists: 
+          copyPlaylist
+        ,
+        deletedPlaylist: {
+          ...state.deletedPlaylist,
+          playlist: deleted
         }
       };
 
     case RESET_DELETED_LIST:
-      return { ...state, deletedPost: { post: null } }
+      return { ...state, deletedPlaylist: { playlist: null } }
 
     default:
       return state;

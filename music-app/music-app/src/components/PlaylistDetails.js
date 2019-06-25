@@ -7,7 +7,7 @@ const PlaylistDetails = (props) => {
   const dispatch = useDispatch();
 
   const { activePlaylist } = useSelector(state => ({
-    activePlaylist: state.posts.activePlaylist
+    activePlaylist: state.music.activePlaylist
   }));
 
   useEffect(() => {
@@ -18,9 +18,8 @@ const PlaylistDetails = (props) => {
 
   return playlist && (
     <div className="container">
-      <h3>{playlist.title}</h3>
-      <h6>Categories: {playlist.categories}</h6>
-      <p>{playlist.content}</p>
+      <h3>{playlist.name}</h3>
+      <h6>Description: {playlist.description}</h6>
     </div>
   );
 }
