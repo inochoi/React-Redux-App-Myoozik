@@ -6,58 +6,64 @@ import {
 
 const INITIAL_STATE = {
   songs: [
-      {
-          id: "0",
-          title: "My YC app: Dropbox - Throw away your USB drive"
-      },
+    {
+      id: "0",
+      title: "bad guy",
+      artist: 'Billie Eilish'
+    },
 
-      {
-          id: "1",
-          title: "Ask HN: The Arc Effect"
-      },
-      {
-          id: "2",
-          title: "Justin.tv is looking for a Lead Flash Engineer!"
-      },
+    {
+      id: "1",
+      title: "Earfquake",
+      artist: 'Tyler, the Creator'
+    },
+    {
+      id: "2",
+      title: "Never Really Over",
+      artist: 'Katy Perry'
+    },
 
-      {
-          id: "3",
-          title: "Yes, ban them; Im tired of seeing Valleywag stories on News.YC."
-      }
+    {
+      id: "3",
+      title: "Old Town Road - Remix",
+      artist: 'Lil Nas X'
+    }
   ],
   playlists: [
-      {
-          id: '0',
-          name: 'my music',
-          description: 'my first playlist',
-          songs: [
-              {
-                  id: "0",
-                  title: "My YC app: Dropbox - Throw away your USB drive"
-
-              },
-              {
-                  id: "3",
-                  title: "Yes, ban them; Im tired of seeing Valleywag stories on News.YC."
-              }
-          ]
-      },
-      {
-          id: '1',
-          name: 'other music',
-          description: 'my other playlist',
-          songs: [
-              {
-                  id: "1",
-                  title: "Ask HN: The Arc Effect"
-
-              },
-              {
-                  id: "2",
-                  title: "Justin.tv is looking for a Lead Flash Engineer!"
-                      }
-          ]
-      }
+    {
+      id: '0',
+      name: 'my music',
+      description: 'my first playlist',
+      songs: [
+        {
+          id: "0",
+          title: "bad guy",
+          artist: 'Billie Eilish'
+        },
+        {
+          id: "3",
+          title: "Old Town Road - Remix",
+          artist: 'Lil Nas X'
+        }
+      ]
+    },
+    {
+      id: '1',
+      name: 'other music',
+      description: 'my other playlist',
+      songs: [
+        {
+          id: "1",
+          title: "Earfquake",
+          artist: 'Tyler, the Creator'
+        },
+        {
+          id: "2",
+          title: "Never Really Over",
+          artist: 'Katy Perry'
+        }
+      ]
+    }
   ],
   activePlaylist: { playlist: null },
   deletedPlaylist: { playlist: null }
@@ -83,20 +89,20 @@ export default function (state = INITIAL_STATE, action) {
     case CREATE_LIST:
       return {
         ...state,
-       
-          // ...state.playlists,
-          playlists: [...state.playlists, action.payload]
-        
+
+        // ...state.playlists,
+        playlists: [...state.playlists, action.payload]
+
       }
 
     case DELETE_LIST:
-      index = state.playlists.findIndex(p => p._id === action.playlistId);
+      index = state.playlists.findIndex(p => p.id === action.playlistId);
       let copyPlaylist = state.playlists.slice();
-      let deleted = copyPlaylist.splice(index, 1)[0];
+      let deleted = copyPlaylist.splice(index, 1);
 
       return {
         ...state,
-        playlists: 
+        playlists:
           copyPlaylist
         ,
         deletedPlaylist: {

@@ -1,8 +1,21 @@
-i {
+.fa-plus-circle {
   font-size: 6rem;
   color: lightblue;
 }
 
+.fa-play-circle {
+    font-size: 2.5rem;
+    color: lightblue;
+}
+
+.fa-plus{
+    color: lightblue;
+}
+
 label {
+    font-size: 3rem;
+}
+
+.songTitle{
     font-size: 3rem;
 }

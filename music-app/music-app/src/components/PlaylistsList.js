@@ -16,7 +16,7 @@ const PlaylistsList = (props) => {
   }));
 
   if (deletedPlaylist.playlist) {
-  	dispatch(resetDeletedPlaylist());
+    dispatch(resetDeletedPlaylist());
   }
 
   // const renderPosts = (pList) => {
@@ -44,7 +44,7 @@ const PlaylistsList = (props) => {
               <Link to={`/playlist/${p.id}`}>
                 {p.name}
               </Link>
-              <button className="btn btn-warning pull-xs-right" onClick={() => dispatch(deletePlaylist(props.id))}>X</button>
+              <button className="btn btn-danger float-right" onClick={() => dispatch(deletePlaylist(p.id))}>X</button>
             </h3>
             <div className="navbar-form navbar-right" style={{ paddingRight: '50px' }}>
             </div>

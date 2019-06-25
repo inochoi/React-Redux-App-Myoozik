@@ -25,7 +25,8 @@ const PlaylistForm = (props) => {
         let playlist = {
             id: uniqid(),
             name: state.name,
-            description: state.description
+            description: state.description,
+            songs: []
         }
 
         dispatch(createPlaylist(playlist));

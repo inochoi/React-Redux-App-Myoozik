@@ -5,11 +5,6 @@ import {Link} from 'react-router-dom';
 
 const PlaylistsIndex = () => {
 
-  // let iStyle = {
-  //   fontsize: '9x',
-  //   color:  'blue'
-  // }
-
   return (
     <div className="container">
       <Header type="playlists_index" />
