@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { resetDeletedPost, deletePost } from '../actions/posts';
+import { resetDeletedPlaylist, deletePlaylist } from '../actions/playlists';
 import { withRouter } from 'react-router-dom';
 
 const Header = (props) => {
 
 	const dispatch = useDispatch();
 
-	const { deletedPost } = useSelector(state => ({
-		deletedPost: state.posts.deletedPost
+	const { deletedPlaylist } = useSelector(state => ({
+		deletedPlaylist: state.posts.deletedPlaylist
 	}));
 
 	const renderLinks = () => {
@@ -45,15 +45,15 @@ const Header = (props) => {
 					</ul>
 
 					<div className="navbar-form navbar-right" style={{ paddingRight: '50px' }}>
-						<button className="btn btn-warning pull-xs-right" onClick={() => dispatch(deletePost(props.postId)) }>Delete Post</button>
+						<button className="btn btn-warning pull-xs-right" onClick={() => dispatch(deletePlaylist(props.postId)) }>Delete Post</button>
 					</div>
 				</div>
 			);
 		}
 	};
 
-	if (deletedPost.post) {
-		dispatch(resetDeletedPost());
+	if (deletedPlaylist.post) {
+		dispatch(resetDeletedPlaylist());
 		props.history.push('/');
 	}
 

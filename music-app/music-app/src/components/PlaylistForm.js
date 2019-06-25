@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { createPost } from '../actions/posts';
+import { createPlaylist } from '../actions/playlists';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import uniqid from 'uniqid';
 
 
-const PostsForm = (props) => {
+const PlaylistForm = (props) => {
 
     const dispatch = useDispatch();
 
@@ -30,7 +30,7 @@ const PostsForm = (props) => {
             content: state.content
         }
 
-        dispatch(createPost(post));
+        dispatch(createPlaylist(post));
         setState(initialState);
         props.history.push('/');
     }
@@ -56,4 +56,4 @@ const PostsForm = (props) => {
     )
 }
 
-export default withRouter(PostsForm);
+export default withRouter(PlaylistForm);

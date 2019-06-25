@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 
-const PostsList = () => {
+const PlaylistsList = () => {
 
-  const { postsList } = useSelector(state => ({
-    postsList: state.posts.postsList
+  const { playlists } = useSelector(state => ({
+    playlists: state.playlists
   }));
 
   const renderPosts = (posts) => {
@@ -21,16 +21,16 @@ const PostsList = () => {
     });
   }
 
-  const { posts } = postsList;
+  const { pList } = playlists;
 
   return (
     <div className="container">
       <h1>Posts</h1>
       <ul className="list-group">
-        {renderPosts(posts)}
+        {renderPosts(pList)}
       </ul>
     </div>
   );
 }
 
-export default PostsList;
+export default PlaylistsList;
