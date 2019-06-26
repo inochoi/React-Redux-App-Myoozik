@@ -16,8 +16,7 @@ const PlaylistDetails = (props) => {
     pList: state.music
   }));
 
-  console.log(pList.songs)
-
+  
 
   useEffect(() => {
     dispatch(fetchPlaylist(props.id));
