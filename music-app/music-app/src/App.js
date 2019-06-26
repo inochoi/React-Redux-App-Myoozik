@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, Fragment } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import PlaylistsIndex from './pages/PlaylistsIndex';
 import PlaylistsNew from './pages/PlaylistsNew';
@@ -7,6 +7,8 @@ import AddSong from './pages/AddSong';
 import './App.css';
 
 const App = () => {
+
+
   return (
     <Switch>
       <Route exact path="/" component={PlaylistsIndex} />
@@ -14,6 +16,7 @@ const App = () => {
       <Route path="/playlist/:id/addsong" component={AddSong} />
       <Route path="/playlist/:id" component={PlaylistsShow} />
     </Switch>
+
   );
 }
 
