@@ -44,7 +44,7 @@ const PlaylistsList = (props) => {
               <Link to={`/playlist/${p.id}`}>
                 {p.name}
               </Link>
-              <button className="btn btn-danger float-right" onClick={() => dispatch(deletePlaylist(p.id))}>X</button>
+              <i className="fas fa-minus" onClick={() => dispatch(deletePlaylist(p.id))}></i>
             </h3>
             <div className="navbar-form navbar-right" style={{ paddingRight: '50px' }}>
             </div>

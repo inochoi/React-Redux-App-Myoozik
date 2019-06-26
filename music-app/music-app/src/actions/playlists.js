@@ -12,6 +12,7 @@ export const RESET_DELETED_LIST = 'RESET_DELETED_LIST';
 
 export const LOADED_DATA = 'LOADED_DATA';
 export const LOADING_DATA = 'LOADING_DATA';
+export const UPDATE_LIST = 'UPDATE_LIST';
 
 
 
@@ -44,12 +45,10 @@ export function deletePlaylist(id) {
   };
 }
 
-// export const getMusic = () => dispatch => {
-//   dispatch({ type: LOADING_DATA });
-//   axios.get(`http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=c1cde2d78679e225704cc430575e14ae&format=json`)
-//     .then(res => {
-//       dispatch(sendData(res.data))
-//       console.log(res.data)
-//     })};
-
-// export const sendData = data => ({ type: LOADED_DATA, payload: data })
+export function updatePlaylist(playlist) {
+  return {
+    type: UPDATE_LIST,
+    payload: playlist,
+    playlistId: playlist.id
+  }
+}

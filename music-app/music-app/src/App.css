@@ -1,4 +1,14 @@
+body{
+    background-color: rgb(17, 17, 17);
+    color: white
+}
+
 .fa-plus-circle {
+  font-size: 6rem;
+  color: lightblue;
+}
+
+.fa-edit {
   font-size: 6rem;
   color: lightblue;
 }
@@ -10,6 +20,18 @@
 
 .fa-plus{
     color: lightblue;
+    border: 1px solid lightblue;
+    border-radius: 10%;
+    padding: 3px;
+    margin: 0 20px;
+}
+
+.fa-minus{
+    color: lightcoral;
+    border: 1px solid lightcoral;
+    border-radius: 10%;
+    padding: 3px;
+    margin: 0 20px;
 }
 
 label {

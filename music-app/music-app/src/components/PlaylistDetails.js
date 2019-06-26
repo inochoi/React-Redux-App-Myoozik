@@ -36,7 +36,7 @@ const PlaylistDetails = (props) => {
         </div>
       ))}
       <Link to={`/playlist/${playlist.id}/addsong`}>
-        <i className="fas fa-plus-circle"></i>
+        <i className="fas fa-edit"></i>
       </Link>
     </div>
 

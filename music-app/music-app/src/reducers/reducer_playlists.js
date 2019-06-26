@@ -1,7 +1,9 @@
 import {
   FETCH_LIST,
   CREATE_LIST,
-  DELETE_LIST, RESET_DELETED_LIST
+  DELETE_LIST,
+  RESET_DELETED_LIST,
+  UPDATE_LIST
 } from '../actions/playlists';
 
 const INITIAL_STATE = {
@@ -71,13 +73,12 @@ const INITIAL_STATE = {
 
 export default function (state = INITIAL_STATE, action) {
   let index;
-  console.log(state);
+  let idx;
 
   switch (action.type) {
 
     case FETCH_LIST:
       index = state.playlists.findIndex(p => p.id === action.playlistId);
-      console.log(state.playlists[index])
       return {
         ...state,
         activePlaylist: {
@@ -97,6 +98,7 @@ export default function (state = INITIAL_STATE, action) {
 
     case DELETE_LIST:
       index = state.playlists.findIndex(p => p.id === action.playlistId);
+      console.log(index)
       let copyPlaylist = state.playlists.slice();
       let deleted = copyPlaylist.splice(index, 1);
 
@@ -110,6 +112,19 @@ export default function (state = INITIAL_STATE, action) {
           playlist: deleted
         }
       };
+
+    case UPDATE_LIST:
+      index = state.playlists.findIndex(p => p.id == action.playlistId);
+      console.log(index)
+      let updatedPlaylist = state.playlists;
+      updatedPlaylist.splice(index, 1, action.payload)
+
+
+      return {
+        ...state,
+        playlists: updatedPlaylist
+      }
+
 
     case RESET_DELETED_LIST:
       return { ...state, deletedPlaylist: { playlist: null } }
