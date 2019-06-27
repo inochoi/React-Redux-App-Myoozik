@@ -11,7 +11,7 @@ export const getSongs = () => dispatch => {
         let artist = '';
         console.log(res);
         console.log(res.data.tracks.length);
-        let promises = [];
+        //let promises = [];
         for (let i = 0; i < res.data.tracks.length; i++){
             albumId = res.data.tracks[i].albumId;
             //artist = res.data.tracks[i].artistName;
