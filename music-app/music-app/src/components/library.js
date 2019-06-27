@@ -14,8 +14,10 @@ const Library = (props) => {
     const [music, setMusic] = useState(initialState);    
 
     useEffect (() => {
-        console.log(props);
+ 
         props.getSongs();
+        console.log('line 19');
+        console.log(props);
     }, []);
 
     const playMusic = (previewUrl) => {
@@ -39,9 +41,15 @@ const Library = (props) => {
             newMusic.playing = true;
             newMusic.playingUrl = previewUrl;
             newMusic.audio = audio;
-        }
-            
+        }           
+
         setMusic(newMusic);
+
+        audio.addEventListener("ended", function() 
+        {
+             console.log('music ended');
+             setMusic(initialState);
+        });
         
     }
 
@@ -57,6 +65,7 @@ const Library = (props) => {
                         <th>Album Name</th>
                         <th>Artist</th>
                         <th>Image</th>
+                        {/* <th>Play</th> */}
                         <th>Play</th>
                     </tr>
                 </thead>
@@ -68,7 +77,11 @@ const Library = (props) => {
                             <td>{song.albumName}</td>
                             <td>{song.artistName}</td>
                             <td><img src= {`${song.imagesrc}`} alt='undefined' /></td>
-                            <td><i className="fas fa-caret-right" onClick={() => playMusic(song.previewURL)}></i></td>
+                            {/* <td><i className="fas fa-caret-right" onClick={() => playMusic(song.previewURL)}></i></td> */}
+                            <td>{music.playingUrl === song.previewURL
+                                ? <span className="toPlay" onClick={() => playMusic(song.previewURL)}> | |</span>
+                                : <span className="toPlay" onClick={() => playMusic(song.previewURL)} >&#9654;</span>}
+                            </td>
                         </tr>
                     ))}
                 </tbody>
