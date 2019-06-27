@@ -1,6 +1,5 @@
 import React from 'react';
-import back from '../pineapple.png';
-import Home from '../Home';
+import Home from '../components/Home';
 
 const Homepage = () => {
     let imgUrl = '../pineapple.png';

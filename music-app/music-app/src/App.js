@@ -6,7 +6,7 @@ import PlaylistsNew from './pages/PlaylistsNew';
 import PlaylistsShow from './pages/PlaylistsShow';
 import AddSong from './pages/AddSong';
 import './App.css';
-import Homepage from './components/Comp/Homepage';
+import Homepage from './pages/Homepage';
 
 const App = () => {
       

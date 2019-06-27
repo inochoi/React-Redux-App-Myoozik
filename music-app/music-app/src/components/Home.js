@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-
 import Toolbar from './Toolbar/Toolbar';
 import SideDrawer from './SideDrawer/SideDrawer';
 import Backdrop from './Backdrop/Backdrop';
-import Homepage from './Comp/Homepage';
 
 
 class Home extends Component {
@@ -21,7 +19,7 @@ class Home extends Component {
     this.setState({ sideDrawerOpen: false })
   }
 
-  
+
   render() {
     let backdrop;
     let sideDrawer;
@@ -37,13 +35,12 @@ class Home extends Component {
         {sideDrawer}
         {backdrop}
         <main style={{ marginTop: '100px' }}>
-          {/* <p>THIS IS THE PAGE CONTENT</p> */}
         </main>
       </div>
-      
+
     )
 
-    
+
   }
 }
 
