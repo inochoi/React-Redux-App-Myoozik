@@ -31,7 +31,7 @@ const PlaylistDetails = (props) => {
       <br />
       {playlist.songs.map((p, index) => (
         <div key={p.id}>
-          <i className="fas fa-play-circle"></i> <span className='songTitle'>{p.title}</span>
+          <i className="fas fa-play-circle"></i> <span className='songTitle'>{p.name}</span>
           <hr />
         </div>
       ))}

@@ -49,6 +49,18 @@ const Header = (props) => {
 					</div>
 				</div>
 			);
+		} else if (type === 'songlist') {
+			return (
+				<div className="container">
+					<ul className="nav  nav-pills navbar-left">
+						<li style={{ paddingRight: '10px', color: '#337ab7', fontSize: '17px' }} role="presentation"><Link to="/">Back To Index</Link></li>
+					</ul>
+
+					<div className="navbar-form navbar-right" style={{ paddingRight: '50px' }}>
+						<button className="btn btn-warning pull-xs-right" onClick={() => dispatch(deletePlaylist(props.postId)) }>Delete Post</button>
+					</div>
+				</div>
+			);
 		}
 	};
 

@@ -6,7 +6,7 @@ const SongList = () => {
 
   return (
     <div className="container">
-      <Header type="songlist" />
+      <Header type="songlist" /> 
       <Library />
     </div>
   );

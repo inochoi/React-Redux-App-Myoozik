@@ -19,24 +19,12 @@ const PlaylistsList = (props) => {
     dispatch(resetDeletedPlaylist());
   }
 
-  // const renderPosts = (pList) => {
-  //   return pList.map((p) => {
-  //     return (
-  //       <li className="list-group-item" key={p._id}>
-  //         <Link style={{ color: 'black' }} to={"posts/" + p.id}>
-  //           <h3 className="list-group-item-heading">{p.name}</h3>
-  //         </Link>
-  //       </li>
-  //     );
-  //   });
-  // }
-
-  // const { pList } = playlists;
   console.log(pList);
 
   return (
     <div className="container">
       <h1>Playlists</h1>
+      <br/>
       <ul className="list-group">
         {pList.map((p, index) => (
           <div key={p.id}>
@@ -51,7 +39,6 @@ const PlaylistsList = (props) => {
             <hr />
           </div>
         ))}
-        {/* {renderPosts(pList)} */}
       </ul>
     </div>
   );

@@ -6,65 +6,72 @@ import {
   UPDATE_LIST,
   LOADED_SONGS,
   LOADING_SONGS
-} from '../actions/playlists';
+} from "../actions/playlists";
 
 const INITIAL_STATE = {
   songs: [
     {
-      id: "0",
-      title: "bad guy",
-      artist: 'Billie Eilish'
+      id: "tra.366594336",
+      name: "Old Town Road (feat. Billy Ray Cyrus) (Remix)",
+      artistName: "Lil Nas X",
+      albumId: "alb.366594335"
+    },
+    {
+      id: "tra.361046974",
+      name: "Old Town Road",
+      artistName: "Lil Nas X",
+      albumId: "alb.361046973"
+    },
+    {
+      id: "tra.186048822",
+      name: "Tennessee Whiskey",
+      artistName: "Chris Stapleton",
+      albumId: "alb.186048819"
     },
 
     {
-      id: "1",
-      title: "Earfquake",
-      artist: 'Tyler, the Creator'
-    },
-    {
-      id: "2",
-      title: "Never Really Over",
-      artist: 'Katy Perry'
-    },
-
-    {
-      id: "3",
-      title: "Old Town Road - Remix",
-      artist: 'Lil Nas X'
+      id: "tra.342529472",
+      name: "Wow.",
+      artistName: "Post Malone",
+      albumId: "alb.342529471"
     }
   ],
   playlists: [
     {
-      id: '0',
-      name: 'my music',
-      description: 'my first playlist',
+      id: "0",
+      name: "my music",
+      description: "my first playlist",
       songs: [
         {
-          id: "0",
-          title: "bad guy",
-          artist: 'Billie Eilish'
+          id: "tra.366594336",
+          name: "Old Town Road (feat. Billy Ray Cyrus) (Remix)",
+          artistName: "Lil Nas X",
+          albumId: "alb.366594335"
         },
         {
-          id: "3",
-          title: "Old Town Road - Remix",
-          artist: 'Lil Nas X'
+          id: "tra.342529472",
+          name: "Wow.",
+          artistName: "Post Malone",
+          albumId: "alb.342529471"
         }
       ]
     },
     {
-      id: '1',
-      name: 'other music',
-      description: 'my other playlist',
+      id: "1",
+      name: "other music",
+      description: "my other playlist",
       songs: [
         {
-          id: "1",
-          title: "Earfquake",
-          artist: 'Tyler, the Creator'
+          id: "tra.361046974",
+          name: "Old Town Road",
+          artistName: "Lil Nas X",
+          albumId: "alb.361046973"
         },
         {
-          id: "2",
-          title: "Never Really Over",
-          artist: 'Katy Perry'
+          id: "tra.186048822",
+          name: "Tennessee Whiskey",
+          artistName: "Chris Stapleton",
+          albumId: "alb.186048819"
         }
       ]
     }
@@ -75,21 +82,15 @@ const INITIAL_STATE = {
   data: []
 };
 
-// const INITIAL_STATE = {
-//   data: [],
-//   isLoading: false
-// }
-
-export default function (state = INITIAL_STATE, action) {
+export default function(state = INITIAL_STATE, action) {
   let index;
 
   switch (action.type) {
-
     case LOADING_SONGS:
       return { isLoading: true };
 
     case LOADED_SONGS:
-      console.log(action.payload.tracks)
+      console.log(action.payload.tracks);
       return { isLoading: false, data: action.payload.tracks };
 
     case FETCH_LIST:
@@ -108,20 +109,17 @@ export default function (state = INITIAL_STATE, action) {
 
         // ...state.playlists,
         playlists: [...state.playlists, action.payload]
-
-      }
+      };
 
     case DELETE_LIST:
       index = state.playlists.findIndex(p => p.id === action.playlistId);
-      console.log(index)
+      console.log(index);
       let copyPlaylist = state.playlists.slice();
       let deleted = copyPlaylist.splice(index, 1);
 
       return {
         ...state,
-        playlists:
-          copyPlaylist
-        ,
+        playlists: copyPlaylist,
         deletedPlaylist: {
           ...state.deletedPlaylist,
           playlist: deleted
@@ -130,19 +128,17 @@ export default function (state = INITIAL_STATE, action) {
 
     case UPDATE_LIST:
       index = state.playlists.findIndex(p => p.id === action.playlistId);
-      console.log(index)
+      console.log(index);
       let updatedPlaylist = state.playlists;
-      updatedPlaylist.splice(index, 1, action.payload)
-
+      updatedPlaylist.splice(index, 1, action.payload);
 
       return {
         ...state,
         playlists: updatedPlaylist
-      }
-
+      };
 
     case RESET_DELETED_LIST:
-      return { ...state, deletedPlaylist: { playlist: null } }
+      return { ...state, deletedPlaylist: { playlist: null } };
 
     default:
       return state;

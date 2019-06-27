@@ -86,7 +86,7 @@ const AddSongForm = (props) => {
                     {state.map((p, index) => (
                         <div key={p.id}>
                             <h3>
-                                <i className="fas fa-minus" onClick={() => { deleteSong(index) }}></i> {p.title}
+                                <i className="fas fa-minus" onClick={() => { deleteSong(index) }}></i> {p.name}
                                 {/* <button className="btn btn-danger float-right" onClick={() => dispatch(deletePlaylist(p.id))}>X</button> */}
                             </h3>
                             <hr />
@@ -100,7 +100,7 @@ const AddSongForm = (props) => {
                     {availSongsArr.map((p, index) => (
                         <div key={p.id}>
                             <h3>
-                                <i className="fas fa-plus" onClick={() => { addSong(index) }}></i> {p.title}
+                                <i className="fas fa-plus" onClick={() => { addSong(index) }}></i> {p.name}
                                 {/* <button className="btn btn-danger float-right" onClick={() => dispatch(deletePlaylist(p.id))}>X</button> */}
                             </h3>
                             <hr />
