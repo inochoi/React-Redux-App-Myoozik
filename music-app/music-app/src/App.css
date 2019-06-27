@@ -41,3 +41,11 @@ label {
 .songTitle{
     font-size: 3rem;
 }
+
+th{
+    font-size: 2rem;
+}
+
+td{
+    font-size: 1.3rem;
+}

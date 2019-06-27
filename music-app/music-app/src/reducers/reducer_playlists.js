@@ -3,7 +3,9 @@ import {
   CREATE_LIST,
   DELETE_LIST,
   RESET_DELETED_LIST,
-  UPDATE_LIST
+  UPDATE_LIST,
+  LOADED_SONGS,
+  LOADING_SONGS
 } from '../actions/playlists';
 
 const INITIAL_STATE = {
@@ -68,14 +70,27 @@ const INITIAL_STATE = {
     }
   ],
   activePlaylist: { playlist: null },
-  deletedPlaylist: { playlist: null }
+  deletedPlaylist: { playlist: null },
+  isLoading: false,
+  data: []
 };
+
+// const INITIAL_STATE = {
+//   data: [],
+//   isLoading: false
+// }
 
 export default function (state = INITIAL_STATE, action) {
   let index;
-  let idx;
 
   switch (action.type) {
+
+    case LOADING_SONGS:
+      return { isLoading: true };
+
+    case LOADED_SONGS:
+      console.log(action.payload.tracks)
+      return { isLoading: false, data: action.payload.tracks };
 
     case FETCH_LIST:
       index = state.playlists.findIndex(p => p.id === action.playlistId);
@@ -114,7 +129,7 @@ export default function (state = INITIAL_STATE, action) {
       };
 
     case UPDATE_LIST:
-      index = state.playlists.findIndex(p => p.id == action.playlistId);
+      index = state.playlists.findIndex(p => p.id === action.playlistId);
       console.log(index)
       let updatedPlaylist = state.playlists;
       updatedPlaylist.splice(index, 1, action.payload)

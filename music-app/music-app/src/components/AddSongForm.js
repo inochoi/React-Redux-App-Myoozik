@@ -74,7 +74,7 @@ const AddSongForm = (props) => {
 
 
         dispatch(updatePlaylist(updatedList));
-        props.history.push('/');
+        props.history.push(`/playlist/${activeListPlaylist.id}`);
     }
 
 
