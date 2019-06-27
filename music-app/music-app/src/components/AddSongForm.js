@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import {updatePlaylist} from '../actions/playlists';
+import {updatePlaylist, getSongs} from '../actions/playlists';
 
 
 
 const AddSongForm = (props) => {
 
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getSongs());
+      }, [])
 
     const { activeList } = useSelector(state => ({
         activeList: state.music.activePlaylist.playlist.songs
@@ -19,14 +23,14 @@ const AddSongForm = (props) => {
 
 
     const { songs } = useSelector(state => ({
-        songs: state.music.songs
+        songs: state.music.data
     }));
 
     const [state, setState] = useState(activeList);
     const [availSongs, setAvailSongs] = useState(songs);
 
 
-    let availSongsArr = availSongs;
+    let availSongsArr = songs;
     for (let n of state) {
         availSongsArr = availSongsArr.filter(x => x.id !== n.id)
     }

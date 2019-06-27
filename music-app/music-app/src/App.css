@@ -1,6 +1,6 @@
-body{
-    background-color: rgb(17, 17, 17);
-    color: white
+body {
+  background-color: rgb(17, 17, 17);
+  color: white;
 }
 
 .fa-plus-circle {
@@ -14,38 +14,53 @@ body{
 }
 
 .fa-play-circle {
-    font-size: 2.5rem;
-    color: lightblue;
+  font-size: 2.5rem;
+  color: lightblue;
+  margin: 0 20px;
 }
 
-.fa-plus{
-    color: lightblue;
-    border: 1px solid lightblue;
-    border-radius: 10%;
-    padding: 3px;
-    margin: 0 20px;
+.fa-pause-circle {
+  font-size: 2.5rem;
+  color: lightblue;
+  margin: 0 20px;
 }
 
-.fa-minus{
-    color: lightcoral;
-    border: 1px solid lightcoral;
-    border-radius: 10%;
-    padding: 3px;
-    margin: 0 20px;
+.fa-plus {
+  color: lightblue;
+  border: 1px solid lightblue;
+  border-radius: 10%;
+  padding: 3px;
+  margin: 0 20px;
+}
+
+.fa-minus {
+  color: lightcoral;
+  border: 1px solid lightcoral;
+  border-radius: 10%;
+  padding: 3px;
+  margin: 0 20px;
 }
 
 label {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
-.songTitle{
-    font-size: 3rem;
+.songTitle {
+  font-size: 3rem;
 }
 
-th{
-    font-size: 2rem;
+th {
+  font-size: 2rem;
 }
 
-td{
-    font-size: 1.3rem;
+td {
+  font-size: 1.3rem;
+}
+
+#play {
+    margin: 0;
+}
+
+#pause {
+    margin: 0;
 }

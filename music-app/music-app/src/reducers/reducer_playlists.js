@@ -14,26 +14,30 @@ const INITIAL_STATE = {
       id: "tra.366594336",
       name: "Old Town Road (feat. Billy Ray Cyrus) (Remix)",
       artistName: "Lil Nas X",
-      albumId: "alb.366594335"
+      albumId: "alb.366594335",
+      previewURL: "https://listen.hs.llnwd.net/g3/5/3/4/3/5/1498053435.mp3"
     },
     {
       id: "tra.361046974",
       name: "Old Town Road",
       artistName: "Lil Nas X",
-      albumId: "alb.361046973"
+      albumId: "alb.361046973",
+      previewURL: "https://listen.hs.llnwd.net/g3/1/8/2/6/0/1498106281.mp3"
     },
     {
       id: "tra.186048822",
       name: "Tennessee Whiskey",
       artistName: "Chris Stapleton",
-      albumId: "alb.186048819"
+      albumId: "alb.186048819",
+      previewURL: "https://listen.hs.llnwd.net/g3/8/9/6/1/4/1281841698.mp3"
     },
 
     {
       id: "tra.342529472",
       name: "Wow.",
       artistName: "Post Malone",
-      albumId: "alb.342529471"
+      albumId: "alb.342529471",
+      previewURL: "https://listen.hs.llnwd.net/g3/8/5/1/2/5/1467052158.mp3"
     }
   ],
   playlists: [
@@ -46,13 +50,15 @@ const INITIAL_STATE = {
           id: "tra.366594336",
           name: "Old Town Road (feat. Billy Ray Cyrus) (Remix)",
           artistName: "Lil Nas X",
-          albumId: "alb.366594335"
+          albumId: "alb.366594335",
+          previewURL: "https://listen.hs.llnwd.net/g3/5/3/4/3/5/1498053435.mp3"
         },
         {
           id: "tra.342529472",
           name: "Wow.",
           artistName: "Post Malone",
-          albumId: "alb.342529471"
+          albumId: "alb.342529471",
+          previewURL: "https://listen.hs.llnwd.net/g3/8/5/1/2/5/1467052158.mp3"
         }
       ]
     },
@@ -65,13 +71,15 @@ const INITIAL_STATE = {
           id: "tra.361046974",
           name: "Old Town Road",
           artistName: "Lil Nas X",
-          albumId: "alb.361046973"
+          albumId: "alb.361046973",
+          previewURL: "https://listen.hs.llnwd.net/g3/1/8/2/6/0/1498106281.mp3"
         },
         {
           id: "tra.186048822",
           name: "Tennessee Whiskey",
           artistName: "Chris Stapleton",
-          albumId: "alb.186048819"
+          albumId: "alb.186048819",
+          previewURL: "https://listen.hs.llnwd.net/g3/8/9/6/1/4/1281841698.mp3"
         }
       ]
     }
@@ -87,11 +95,15 @@ export default function(state = INITIAL_STATE, action) {
 
   switch (action.type) {
     case LOADING_SONGS:
-      return { isLoading: true };
+      return { ...state, isLoading: true };
 
     case LOADED_SONGS:
       console.log(action.payload.tracks);
-      return { isLoading: false, data: action.payload.tracks };
+      return { 
+        ...state,
+        isLoading: false,
+        data: action.payload.tracks
+      };
 
     case FETCH_LIST:
       index = state.playlists.findIndex(p => p.id === action.playlistId);

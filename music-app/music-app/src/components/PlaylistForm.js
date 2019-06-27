@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { createPlaylist } from '../actions/playlists';
+import React, { useState, useEffect } from 'react';
+import { createPlaylist, getSongs } from '../actions/playlists';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import uniqid from 'uniqid';
@@ -15,14 +15,18 @@ const PlaylistForm = (props) => {
         songs: []
     }
 
+    useEffect(() => {
+        dispatch(getSongs());
+      }, [])
+
     const { songs } = useSelector(state => ({
-        songs: state.music.songs
+        songs: state.music.data
     }));
 
     const [state, setState] = useState(initialState);
     const [availSongs, setAvailSongs] = useState(songs);
 
-    let availSongsArr = availSongs;
+    let availSongsArr = songs;
     for (let n of state.songs) {
         availSongsArr = availSongsArr.filter(x => x.id !== n.id)
     }
