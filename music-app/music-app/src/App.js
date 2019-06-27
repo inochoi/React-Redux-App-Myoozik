@@ -6,16 +6,17 @@ import PlaylistsNew from './pages/PlaylistsNew';
 import PlaylistsShow from './pages/PlaylistsShow';
 import AddSong from './pages/AddSong';
 import './App.css';
+import Homepage from './components/Comp/Homepage';
 
 const App = () => {
-
-
+      
   return (
     <Switch>
-      <Route exact path="/" component={PlaylistsIndex} />
+      <Route exact path="/" component={Homepage} />
       <Route path="/playlist/new" component={PlaylistsNew} />
       <Route path="/playlist/:id/addsong" component={AddSong} />
       <Route path="/playlist/:id" component={PlaylistsShow} />
+      <Route path="/playlist" component={PlaylistsIndex} />
       <Route path="/library" component={SongList} />
     </Switch>
 
