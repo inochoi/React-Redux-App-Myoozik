@@ -1,7 +1,6 @@
 import React from 'react';
-import Header from '../components/Header';
 import PlaylistsList from '../components/PlaylistsList';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Home from '../components/Home';
 
 const PlaylistsIndex = () => {
@@ -11,7 +10,7 @@ const PlaylistsIndex = () => {
       <Home type="playlists_index" />
       <PlaylistsList />
       <Link to="/playlist/new">
-        <i className="fas fa-plus-circle"></i>
+      <button className="btn btn-outline-primary text-center addPlaylist"><i className="fas fa-plus addPlaylistIcon"></i></button>
       </Link>
     </div>
   );

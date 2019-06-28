@@ -15,7 +15,6 @@ const PlaylistDetails = (props) => {
   const [music, setMusic] = useState(initialState);
 
   const playMusic = (previewUrl) => {
-    console.log('play');
     let audio = new Audio(previewUrl);
     let newMusic = {};
     if (!music.playing) {
@@ -40,14 +39,10 @@ const PlaylistDetails = (props) => {
     setMusic(newMusic);
 
     audio.addEventListener("ended", function () {
-      console.log('music ended');
       setMusic(initialState);
     });
 
   }
-
-
-
 
 
   const dispatch = useDispatch();
@@ -55,11 +50,6 @@ const PlaylistDetails = (props) => {
   const { activePlaylist } = useSelector(state => ({
     activePlaylist: state.music.activePlaylist
   }));
-
-  const { pList } = useSelector(state => ({
-    pList: state.music
-  }));
-
 
 
   useEffect(() => {
@@ -78,13 +68,12 @@ const PlaylistDetails = (props) => {
           {music.playingUrl === p.previewURL
             ? <span className="toPlay" onClick={() => playMusic(p.previewURL)}><i className="fas fa-pause-circle"></i></span>
             : <span className="toPlay" onClick={() => playMusic(p.previewURL)} ><i className="fas fa-play-circle"></i></span>}
-          {/* <i className="fas fa-play-circle"></i>  */}
           <span className='songTitle'>{p.name}</span>
           <hr />
         </div>
       ))}
       <Link to={`/playlist/${playlist.id}/addsong`}>
-        <i className="fas fa-edit"></i>
+      <button className="btn btn-outline-warning text-center editPlaylist"><i className="fas fa-edit editPlaylistIcon"></i></button>
       </Link>
     </div>
 

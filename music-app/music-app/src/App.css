@@ -1,15 +1,15 @@
 body {
-  background-color: rgb(17, 17, 17);
+  background-color: black;
   color: white;
 }
 
 .fa-plus-circle {
-  font-size: 6rem;
+  font-size: 5rem;
   color: lightblue;
 }
 
 .fa-edit {
-  font-size: 6rem;
+  font-size: 5rem;
   color: lightblue;
 }
 
@@ -41,10 +41,6 @@ body {
   margin: 0 20px;
 }
 
-label {
-  font-size: 3rem;
-}
-
 .songTitle {
   font-size: 3rem;
 }
@@ -58,9 +54,117 @@ td {
 }
 
 #play {
-    margin: 0;
+  margin: 0;
 }
 
 #pause {
-    margin: 0;
+  margin: 0;
+}
+
+/* .home {
+  background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQgICA0IBwcHBw0HBwcHBw8ICQcNFREWIhURExMYHSggGBoxGxMTITEhMSkrLi4uFx8zODMsNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALEBHAMBIgACEQEDEQH/xAAYAAADAQEAAAAAAAAAAAAAAAAAAQIDB//EABgQAQEBAQEAAAAAAAAAAAAAAAABEQIS/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AORxUTFQFRUTFQFRUTFQFxUTFQF8riIqA05a8suWsBcXERUBpFSoitBcp6iHoK1NGgCLFFaCOmXTTqsugTemfdV0zoJqaqooDU9GKDOs+mvUZ2Ayqa0sTQZ1K6gDiomKgKiomHAXFxEVAXFxEaQFRUKKgK4axlGkoLioiVUoNIqM5TlBpKeo0aC9NEo0FWo6ovTProD6rPqi1FoFUU7U2gVTTKgkyKgdZVVrPqgnpnV9IoJtSZAFQYcA4qFFQDi4mKgL5aSM+WkBUioIMBUVESNJAOKiTlBenqD0F6NRo0F3ovSLStBV6Tam1NoKtTam0rQFqdFqbQMqWloC1NotICtRVVFBNTTpAmkdGAZkcA4qJi4CoqIi4C+VxHK4C4qIi4C4pMGgoajRoL09Z6egrRqNGgq0rU2jQFqbRamgdpUrU2gdqbRqbQO1No0rQFpaVpaB1FPU2gVIWloADSAzhHAVFRCpQWqIi4CouVnFQGkqozlXKDSUrS0tA9PUCUFaepGgrRqbRoHo1OjQOp0rStAWpotTaB1NFpWgLU2i1NoHanStK0D0tLS0BaQIDGkAWZADOENBpKrWcqtBcq5WMq5QaSqlZyrgNNGp0tBQTogK0am0aCrS1NpaC9K1GlaCrStTpaB2lpaVAWlpWlaB2ptFpAKkyAiMgAAAAADGkAVpxJwFDS0AetOayi5QaSrlZSn6BtpaidC9A1lNnKrQO1OlaVoHpWp0aB6VpaWgrStTpaCpRUaegKmnSAqWikBkABAAAAAAAAAGBDRSBWiVJgrT1IBcp6z1UoL09SAaTo/TI5QaaWo0aCrU2i0gPS0i0DpaLSoHo1OloL0tLS0D0gAMEYEAAAAAAAAYAFSVgwEmMPAAAAHCAKGkQK0akArT1B6CtFqNLQVpWkQHpaAA0EAMEAMAAYIwAAAEAAAALMGBAwBYDGAWFisAJB08BJHYQAjAEAAAAAEYAlEAIjpAAAAMgBgjAAAAAAAMA0gIwAAAwQAyMrQAgGgKVGkBAACAAAAAANIAAQAAgMEQGCAHFREPQMFaAMAgVKepGg1AAAAAAAAAAEYAAiAClQAAAAhQABGAIqABUAAAAAAAGAAFIADAAAAA/9k=);
+  height: 50vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+.home {
+  position: relative;
+  width: 100%; /* for IE 6 */
+}
+
+#title {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 100%;
+}
+
+h1 span {
+  color: white;
+  font: bold 24px/45px Helvetica, Sans-Serif;
+  letter-spacing: -1px;
+  background: rgb(0, 0, 0); /* fallback color */
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+}
+
+h1 span.spacer {
+  padding:0 5px;
+}
+
+#background {
+  width: 100%;
+  height: 100vh;
+}
+
+button {
+  margin-bottom: 20px;
+}
+
+.addSong {
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  margin-right: 20px;
+}
+
+.addSongIcon {
+  margin: 0;
+  border: none;
+  color: lightblue;
+}
+
+.deleteSong {
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  margin-right: 20px;
+}
+
+.deleteSongIcon {
+  margin: 0;
+  border: none;
+  color: lightcoral;
+}
+
+.text-truncate {
+  max-width: 250px;
+}
+
+#deletePlaylist{
+  margin-left: 20px;
+}
+
+.addPlaylist {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+
+.addPlaylistIcon{
+  margin: 0;
+  border: none;
+  color: lightblue;
+  font-size: 50px;
+}
+
+.editPlaylistIcon{
+  margin: 0;
+  border: none;
+  color: lightyellow;
+  font-size: 40px;
+}
+
+.editPlaylist {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+
+audio{
+  width: 250px;
 }

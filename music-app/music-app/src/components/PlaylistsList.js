@@ -24,15 +24,16 @@ const PlaylistsList = (props) => {
   return (
     <div className="container">
       <h1>Playlists</h1>
-      <br/>
+      <br />
       <ul className="list-group">
         {pList.map((p, index) => (
           <div key={p.id}>
             <h3>
               <Link to={`/playlist/${p.id}`}>
-                {p.name}
+                {p.name} 
               </Link>
-              <i className="fas fa-minus" onClick={() => dispatch(deletePlaylist(p.id))}></i>
+              <button id='deletePlaylist' className="btn btn-outline-danger text-center deleteSong" onClick={() => dispatch(deletePlaylist(p.id))}><i className="fas fa-minus deleteSongIcon"></i></button>
+
             </h3>
             <div className="navbar-form navbar-right" style={{ paddingRight: '50px' }}>
             </div>

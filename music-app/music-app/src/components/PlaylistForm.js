@@ -17,14 +17,14 @@ const PlaylistForm = (props) => {
 
     useEffect(() => {
         dispatch(getSongs());
-      }, [])
+    }, [])
 
     const { songs } = useSelector(state => ({
         songs: state.music.data
     }));
 
     const [state, setState] = useState(initialState);
-    const [availSongs, setAvailSongs] = useState(songs);
+    // const [availSongs, setAvailSongs] = useState(songs);
 
     let availSongsArr = songs;
     for (let n of state.songs) {
@@ -44,7 +44,7 @@ const PlaylistForm = (props) => {
                 songs: [...state.songs, availSongsArr[idx]]
             }
         );
-        setAvailSongs(availSongsArr)
+        // setAvailSongs(availSongsArr)
     }
 
     const deleteSong = (idx) => {
@@ -58,10 +58,10 @@ const PlaylistForm = (props) => {
             }
         );
 
-        setAvailSongs([
-            ...availSongsArr,
-            deleted
-        ])
+        // setAvailSongs([
+        //     ...availSongsArr,
+        //     deleted
+        // ])
     }
 
 
@@ -77,28 +77,29 @@ const PlaylistForm = (props) => {
 
         dispatch(createPlaylist(playlist));
         setState(initialState);
-        props.history.push('/');
+        props.history.push('/playlist');
     }
 
     return (
         <div className="container">
             <form onSubmit={onSubmit}>
                 <div className="form-group">
-                    <label>Name</label>
+                    <h2>Name</h2>
                     <input className="form-control" name='name' value={state.name} onChange={onChange} />
                 </div>
                 <div className="form-group">
-                    <label>Description</label>
+                    <h2>Description</h2>
                     <input className="form-control" name='description' value={state.description} onChange={onChange} />
                 </div>
 
-                <div><label>Add songs here</label></div>
+                <div><h2>Add songs here</h2></div>
+                <br/>
                 <ul className="list-group">
                     {state.songs.map((p, index) => (
                         <div key={p.id}>
                             <h3>
-                                <i className="fas fa-minus" onClick={() => { deleteSong(index) }}></i> {p.name}
-                                {/* <button className="btn btn-danger float-right" onClick={() => dispatch(deletePlaylist(p.id))}>X</button> */}
+                            <button className="btn btn-outline-danger text-center deleteSong" onClick={() => { deleteSong(index) }}><i className="fas fa-minus deleteSongIcon"></i></button> {p.name}
+
                             </h3>
                             <hr />
                         </div>
@@ -106,20 +107,20 @@ const PlaylistForm = (props) => {
                 </ul>
                 <br />
 
-                <div><label>Available Songs</label></div>
+                <div><h2>Available Songs</h2></div>
+                <br/>
                 <ul className="list-group">
                     {availSongsArr.map((p, index) => (
                         <div key={p.id}>
                             <h3>
-                                <i className="fas fa-plus" onClick={() => { addSong(index) }}></i> {p.name}
-                                {/* <button className="btn btn-danger float-right" onClick={() => dispatch(deletePlaylist(p.id))}>X</button> */}
+                                <button className="btn btn-outline-primary text-center addSong" onClick={() => { addSong(index) }}><i className="fas fa-plus addSongIcon"></i></button> {p.name}
                             </h3>
                             <hr />
                         </div>
                     ))}
                 </ul>
 
-                <button type="submit" className="btn btn-primary">Create Playlist</button>
+                <button type="submit" className="btn btn-outline-success btn-lg">Create Playlist</button>
             </form>
         </div>
     )

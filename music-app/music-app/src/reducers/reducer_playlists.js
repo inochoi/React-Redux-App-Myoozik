@@ -90,7 +90,7 @@ const INITIAL_STATE = {
   data: []
 };
 
-export default function(state = INITIAL_STATE, action) {
+export default function (state = INITIAL_STATE, action) {
   let index;
 
   switch (action.type) {
@@ -98,8 +98,7 @@ export default function(state = INITIAL_STATE, action) {
       return { ...state, isLoading: true };
 
     case LOADED_SONGS:
-      console.log(action.payload.tracks);
-      return { 
+      return {
         ...state,
         isLoading: false,
         data: action.payload.tracks
@@ -125,7 +124,6 @@ export default function(state = INITIAL_STATE, action) {
 
     case DELETE_LIST:
       index = state.playlists.findIndex(p => p.id === action.playlistId);
-      console.log(index);
       let copyPlaylist = state.playlists.slice();
       let deleted = copyPlaylist.splice(index, 1);
 
@@ -140,7 +138,6 @@ export default function(state = INITIAL_STATE, action) {
 
     case UPDATE_LIST:
       index = state.playlists.findIndex(p => p.id === action.playlistId);
-      console.log(index);
       let updatedPlaylist = state.playlists;
       updatedPlaylist.splice(index, 1, action.payload);
 

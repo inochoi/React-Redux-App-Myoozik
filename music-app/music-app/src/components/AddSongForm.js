@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import {updatePlaylist, getSongs} from '../actions/playlists';
+import { updatePlaylist, getSongs } from '../actions/playlists';
 
 
 
@@ -11,7 +11,7 @@ const AddSongForm = (props) => {
 
     useEffect(() => {
         dispatch(getSongs());
-      }, [])
+    }, [])
 
     const { activeList } = useSelector(state => ({
         activeList: state.music.activePlaylist.playlist.songs
@@ -35,12 +35,6 @@ const AddSongForm = (props) => {
         availSongsArr = availSongsArr.filter(x => x.id !== n.id)
     }
 
-    console.log('totals songs avail: ')
-    console.log(availSongs)
-    console.log('songs on current playlist: ')
-    console.log(state);
-    console.log('songs avail to add: ')
-    console.log(availSongsArr)
 
     const addSong = (idx) => {
         setState([
@@ -86,12 +80,12 @@ const AddSongForm = (props) => {
         <div>
             <form onSubmit={onSubmit}>
                 <div><h2>Add songs here</h2></div>
+                <br/>
                 <ul className="list-group">
                     {state.map((p, index) => (
                         <div key={p.id}>
                             <h3>
-                                <i className="fas fa-minus" onClick={() => { deleteSong(index) }}></i> {p.name}
-                                {/* <button className="btn btn-danger float-right" onClick={() => dispatch(deletePlaylist(p.id))}>X</button> */}
+                                <button className="btn btn-outline-danger text-center deleteSong" onClick={() => { deleteSong(index) }}><i className="fas fa-minus deleteSongIcon"></i></button> {p.name}
                             </h3>
                             <hr />
                         </div>
@@ -100,19 +94,20 @@ const AddSongForm = (props) => {
                 <br />
 
                 <div><h2>Available Songs</h2></div>
+                <br/>
                 <ul className="list-group">
                     {availSongsArr.map((p, index) => (
                         <div key={p.id}>
                             <h3>
-                                <i className="fas fa-plus" onClick={() => { addSong(index) }}></i> {p.name}
-                                {/* <button className="btn btn-danger float-right" onClick={() => dispatch(deletePlaylist(p.id))}>X</button> */}
+                                <button className="btn btn-outline-primary text-center addSong" onClick={() => { addSong(index) }}><i className="fas fa-plus addSongIcon"></i></button> {p.name}
+
                             </h3>
                             <hr />
                         </div>
                     ))}
                 </ul>
                 <div>
-                    <button type="submit" className="btn btn-primary">Save</button>
+                    <button type="submit" className="btn btn-outline-success btn-lg">Save</button>
                 </div>
             </form>
         </div>
