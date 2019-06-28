@@ -1,6 +1,6 @@
 .side-drawer {
   height: 100%;
-  background: white;
+  background: rgb(175, 82, 155);
   box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
@@ -31,12 +31,12 @@
   .side-drawer a {
     color: rgb(0, 0, 0);
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 2rem;
   }
 
   .side-drawer a:hover,
   .side-drawer a:active {
-    color: #ff00ea;
+    color: #a472dd;
 
   }
   ul.sidenav {
@@ -60,4 +60,33 @@
     .tool__toggle-button {
       margin-left: 0;
     }
+  }
+
+  .sidebar {
+    width: 600px;
+    margin-top: 10px;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+    -moz-box-shadow: 2px 2px 4px 0px darkgray;
+    -webkit-box-shadow: 2px 2px 4px 0px darkgray;
+    box-shadow: 2px 2px 4px 0px darkgray;
+    -moz-border-radius: 7px 7px 7px 7px;
+    -webkit-border-radius: 7px 7px 7px 7px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 100px;
+    background-color: white;
+  }
+  
+  .sidebar:hover, .sidebar:focus, .sidebar:active
+  {
+  -webkit-box-shadow: 5px 5px 10px rgba(0,0, 0, 0.4);
+  -moz-box-shadow: 5px 5px 10px rgba(0,0, 0, 0.4);
+  box-shadow: 5px 5px 10px rgba(0,0, 0, 0.4);
+  -webkit-transform: scale(0.1);
+  -moz-transform: scale(0.1);
+  transform: scale(2);
+  outline: none;
   }
