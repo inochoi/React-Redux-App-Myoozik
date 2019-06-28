@@ -225,13 +225,14 @@ a:hover{
 
 .toolbar{
   padding-left: 20px;
-  padding-top: 10px;
+  padding-top: 35px;
 }
 
 .songLibrary {
   position: absolute;
   top: 400px;
   left: 0;
+  
 }
 
 .songLibrary:hover, .songLibrary:focus, .songLibrary:active{
@@ -247,3 +248,9 @@ a:hover{
 .playlists:hover, .playlists:focus, .playlists:active{
   outline: none;
 } 
+
+#logo {
+  position: absolute;
+  top: 5px;
+  left: 60px;
+}
