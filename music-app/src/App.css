@@ -1,0 +1,10 @@
+.homePageBkg {
+    background-image: url("myoozik_bkg.png");
+    background-color: #cccccc;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    
+}

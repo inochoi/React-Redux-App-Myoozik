@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Toolbar from './components/Toolbar/Toolbar';
 import SideDrawer from './components/SideDrawer/SideDrawer';
 import Backdrop from './components/Backdrop/Backdrop';
+import Home from './components/Comp/Home';
 
 
 class App extends Component {
@@ -34,7 +35,9 @@ class App extends Component {
         {sideDrawer}
         {backdrop}
         <main style={{ marginTop: '100px' }}>
-          <p>THIS IS THE PAGE CONTENT</p>
+          <Home />
+          <p>THIS IS THE PAGE CONTENdT</p>
+          
         </main>
       </div>
     )
