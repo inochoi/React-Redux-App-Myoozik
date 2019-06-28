@@ -24,7 +24,7 @@ const PlaylistForm = (props) => {
     }));
 
     const [state, setState] = useState(initialState);
-    // const [availSongs, setAvailSongs] = useState(songs);
+    const [availSongs, setAvailSongs] = useState(songs);
 
     let availSongsArr = songs;
     for (let n of state.songs) {
@@ -44,7 +44,7 @@ const PlaylistForm = (props) => {
                 songs: [...state.songs, availSongsArr[idx]]
             }
         );
-        // setAvailSongs(availSongsArr)
+        setAvailSongs(availSongsArr)
     }
 
     const deleteSong = (idx) => {
@@ -58,10 +58,10 @@ const PlaylistForm = (props) => {
             }
         );
 
-        // setAvailSongs([
-        //     ...availSongsArr,
-        //     deleted
-        // ])
+        setAvailSongs([
+            ...availSongsArr,
+            deleted
+        ])
     }
 
 
