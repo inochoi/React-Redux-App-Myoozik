@@ -19,7 +19,6 @@ const PlaylistsList = (props) => {
     dispatch(resetDeletedPlaylist());
   }
 
-  console.log(pList);
 
   return (
     <div className="container">
