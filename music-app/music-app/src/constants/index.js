@@ -1,2 +1,0 @@
-export const LOADED_SONGS = 'LOADED_SONGS';
-export const LOADING_SONGS = 'LOADING_SONGS';
