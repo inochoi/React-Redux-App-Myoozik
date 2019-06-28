@@ -79,7 +79,8 @@ const AddSongForm = (props) => {
     return (
         <div>
             <form onSubmit={onSubmit}>
-                <div><h2>Add songs here</h2></div>
+                <br/>
+                <div><h2>Added Songs</h2></div>
                 <br/>
                 <ul className="list-group">
                     {state.map((p, index) => (

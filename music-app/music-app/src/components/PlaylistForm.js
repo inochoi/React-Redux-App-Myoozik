@@ -84,6 +84,7 @@ const PlaylistForm = (props) => {
         <div className="container">
             <form onSubmit={onSubmit}>
                 <div className="form-group">
+                    <br/>
                     <h2>Name</h2>
                     <input className="form-control" name='name' value={state.name} onChange={onChange} />
                 </div>
@@ -91,8 +92,9 @@ const PlaylistForm = (props) => {
                     <h2>Description</h2>
                     <input className="form-control" name='description' value={state.description} onChange={onChange} />
                 </div>
+                <br/>
 
-                <div><h2>Add songs here</h2></div>
+                <div><h2>Added Songs</h2></div>
                 <br/>
                 <ul className="list-group">
                     {state.songs.map((p, index) => (

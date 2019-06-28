@@ -23,6 +23,7 @@ const PlaylistsList = (props) => {
 
   return (
     <div className="container">
+      <br/>
       <h1>Playlists</h1>
       <br />
       <ul className="list-group">
@@ -30,7 +31,7 @@ const PlaylistsList = (props) => {
           <div key={p.id}>
             <h3>
               <Link to={`/playlist/${p.id}`}>
-                {p.name} 
+                {p.name}
               </Link>
               <button id='deletePlaylist' className="btn btn-outline-danger text-center deleteSong" onClick={() => dispatch(deletePlaylist(p.id))}><i className="fas fa-minus deleteSongIcon"></i></button>
 
