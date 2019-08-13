@@ -1,5 +1,5 @@
 # React/Redux App - Myoozik
-
+![alt](https://github.com/inochoi/music-app/blob/master/music-app.png)
 This is a React/Redux based web application, which supports features of getting music list through API calls and create/read/update/delete music playlist.
 
 ## Tech Stack
