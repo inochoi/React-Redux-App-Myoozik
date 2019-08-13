@@ -4,7 +4,7 @@ This is a React/Redux based web application, which supports features of getting 
 
 ## Tech Stack
 
-* The front-end client is built as a simple-page-application using React and Redux (for middlewares and reducers).
+* The front-end is built as a simple-page-application using React and Redux.
 * React-Router is used for navigation.
 * Redux-Thunk is used for processing asynchronous requests.
 * Bootstrap is used for page styling.
