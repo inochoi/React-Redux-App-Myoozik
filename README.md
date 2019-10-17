@@ -2,7 +2,7 @@
 ![alt](https://github.com/inochoi/music-app/blob/master/music-app.png)
 This is a React/Redux based web application, which supports features of getting music list through API(Napster) calls and create/read/update/delete music playlist.
 
-Go **[here](https://banana-myoozik.herokuapp.com)** for live demo.
+Go **[here](https://inochoi.mynetgear.com)** for live demo.
 
 ## Tech Stack
 
