@@ -6,7 +6,7 @@ Go **[here](http://inochoi.mynetgear.com)** for live demo.
 
 ## Tech Stack
 
-* The front-end is built as a simple-page-application using React and Redux.
+* The front-end is built as a simple-page-application using React & Redux.
 * React-Router is used for navigation.
 * Redux-Thunk is used for processing asynchronous requests.
 * Bootstrap is used for page styling.
